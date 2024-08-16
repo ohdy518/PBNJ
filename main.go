@@ -14,8 +14,8 @@ const (
 )
 
 type Bread struct {
-	identity         string
-	yawDirection     float64
+	identity         string  // "A" or "B"
+	yawDirection     float64 // where the upward is
 	topRollDirection float64
 	matrixWidth      int
 	matrixHeight     int
@@ -84,19 +84,24 @@ func prepare() {
 }
 
 func pastePB(content *PBSpread) {
+	// create a two-dimensional array signifying the position of particles
+
 	var temp1DList []PBParticle
 	var temp2DList [][]PBParticle
 	for i := 0; i < content.adjacentBread.matrixWidth; i++ {
-		temp1DList = append(temp1DList, PBParticle{})
+		temp1DList = append(temp1DList, PBParticle{}) // creates one-dimensional array with the length of adjacentBread's matrixWidth
 	}
 	for j := 0; j < content.adjacentBread.matrixHeight; j++ {
-		temp2DList = append(temp2DList, temp1DList)
+		temp2DList = append(temp2DList, temp1DList) // copies the 1D array by adjacentBread's matrixHeight
 	}
-	content.positionArray = temp2DList
+	content.positionArray = temp2DList // copies the temporary 2D array to the content passed by
 	fmt.Println("PBSpread set. ")
 }
 
 func pasteJelly(content *JellySpread) {
+	// same function as pastePB, for JellySpread
+	// refer to pastePB for explanations
+
 	var temp1DList []JellyParticle
 	var temp2DList [][]JellyParticle
 	for i := 0; i < content.adjacentBread.matrixWidth; i++ {
@@ -110,6 +115,7 @@ func pasteJelly(content *JellySpread) {
 }
 
 func makeSandwich(topBread Bread, bottomBread Bread, peanutButter PBSpread, jelly JellySpread) Sandwich {
+	// returns a Sandwich value consisting of the ingredients
 	return Sandwich{
 		topBread: topBread,
 		spread: Spread{
