@@ -76,7 +76,7 @@ func prepare() {
 	// set breadB as the top bread by facing down
 	breadB.topRollDirection = math.Abs(180 - DefaultTopRollDirection)
 
-	// author note: breadA and breadB should not change
+	// note: breadA and breadB should not interchange
 
 	// bind peanutButter to breadA and jelly to breadB
 	peanutButter.adjacentBread = breadA
