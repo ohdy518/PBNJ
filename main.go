@@ -95,7 +95,6 @@ func pastePB(content *PBSpread) {
 		temp2DList = append(temp2DList, temp1DList) // copies the 1D array by adjacentBread's matrixHeight
 	}
 	content.positionArray = temp2DList // copies the temporary 2D array to the content passed by
-	fmt.Println("PBSpread set. ")
 }
 
 func pasteJelly(content *JellySpread) {
@@ -111,7 +110,6 @@ func pasteJelly(content *JellySpread) {
 		temp2DList = append(temp2DList, temp1DList)
 	}
 	content.positionArray = temp2DList
-	fmt.Println("JellySpread set.")
 }
 
 func makeSandwich(topBread Bread, bottomBread Bread, peanutButter PBSpread, jelly JellySpread) Sandwich {
